@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<style>
+body{margin:0;background:#F6F4EE;color:#15201A;font-family:'Manrope',sans-serif;font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:#15201A;text-decoration:none}a:hover{color:#1F7A3F}
+h1,h2,h3,p,ul{margin:0}ul{padding:0;list-style:none}
+</style>
+</helmet>
+<div data-screen-label="FlareMedia — redesigned homepage" style="width:100%;background:#F6F4EE;color:#15201A">
+
+  <!-- Nav -->
+  <header style="position:sticky;top:0;z-index:50;background:rgba(246,244,238,.92);backdrop-filter:blur(12px);border-bottom:1px solid #E2DED3">
+    <div style="max-width:1200px;margin:0 auto;padding:18px 32px;display:flex;align-items:center;justify-content:space-between;gap:24px">
+      <a href="#top" style="display:flex;align-items:center;gap:10px">
+        <span style="display:block;width:19px;height:32px;overflow:hidden"><img src="assets/logo.png" alt="" style="height:32px;display:block"></span>
+        <span style="font-family:'Newsreader',serif;font-size:24px;font-weight:500;letter-spacing:-.01em">FlareMedia</span>
+      </a>
+      <nav style="display:flex;gap:28px;font-size:15px;font-weight:600">
+        <a href="#title">Title</a><a href="#agents">Agents</a><a href="#work">Work</a><a href="#contact">Contact</a>
+      </nav>
+      <div style="display:flex;align-items:center;gap:20px">
+        <sc-if value="{{ showPhone }}" hint-placeholder-val="{{ true }}"><a href="tel:6263334567" style="font-size:15px;font-weight:600;color:#5E645D">(626) 333-4567</a></sc-if>
+        <a href="{{ bookingUrl }}" style="background:#15201A;color:#F6F4EE;padding:11px 20px;border-radius:999px;font-size:15px;font-weight:600;white-space:nowrap" style-hover="background:#1F7A3F;color:#F6F4EE">Book a call</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section id="top" style="max-width:1200px;margin:0 auto;padding:112px 32px 88px;display:grid;grid-template-columns:minmax(0,1fr);gap:40px">
+    <div style="display:flex;align-items:center;gap:10px;font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#5E645D"><span style="width:8px;height:8px;border-radius:50%;background:#70F28B;display:inline-block"></span>Glendora, CA · Boutique agency</div>
+    <h1 style="font-family:'Newsreader',serif;font-weight:400;font-size:clamp(44px,7vw,92px);line-height:1;letter-spacing:-.025em;max-width:16ch;text-wrap:balance">Marketing for the people who <em style="font-style:italic;color:#1F7A3F">close</em> deals.</h1>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:32px;align-items:end">
+      <p style="font-size:21px;line-height:1.5;color:#3E453F;max-width:34ch">We run marketing for title companies and email for real estate agents. Not a platform — a small team that does the work for you.</p>
+      <div style="display:flex;gap:14px;flex-wrap:wrap;justify-self:end">
+        <a href="{{ bookingUrl }}" style="background:#15201A;color:#F6F4EE;padding:16px 28px;border-radius:999px;font-weight:600" style-hover="background:#1F7A3F;color:#F6F4EE">Book a call</a>
+        <a href="#work" style="padding:16px 28px;border-radius:999px;font-weight:600;border:1px solid #C9C5B9">See the work</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Two branches -->
+  <section style="max-width:1200px;margin:0 auto;padding:0 32px 96px;display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:20px">
+    <div id="title" style="background:#FFFFFF;border:1px solid #E2DED3;border-radius:20px;padding:44px 40px;display:flex;flex-direction:column;gap:28px;scroll-margin-top:90px">
+      <div style="font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#1F7A3F">For title companies</div>
+      <h2 style="font-family:'Newsreader',serif;font-weight:400;font-size:40px;line-height:1.1;letter-spacing:-.02em;text-wrap:balance">Your whole marketing department, outsourced.</h2>
+      <ul style="display:grid;gap:0;border-top:1px solid #E2DED3">
+        <sc-for list="{{ titleServices }}" as="s" hint-placeholder-count="4">
+          <li style="display:grid;grid-template-columns:auto minmax(0,1fr);gap:20px;padding:18px 0;border-bottom:1px solid #E2DED3;align-items:baseline">
+            <span style="font-family:'Newsreader',serif;font-size:18px;color:#8A8F88;font-variant-numeric:tabular-nums">{{ s.n }}</span>
+            <div><div style="font-weight:700;font-size:18px">{{ s.name }}</div><div style="color:#5E645D;font-size:16px;margin-top:2px">{{ s.desc }}</div></div>
+          </li>
+        </sc-for>
+      </ul>
+      <a href="{{ bookingUrl }}" style="font-weight:700;display:inline-flex;align-items:center;gap:8px;margin-top:auto">Talk to us about your title company <span>→</span></a>
+    </div>
+    <div id="agents" style="background:#15201A;color:#F6F4EE;border-radius:20px;padding:44px 40px;display:flex;flex-direction:column;gap:28px;scroll-margin-top:90px">
+      <div style="font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#70F28B">For real estate agents</div>
+      <h2 style="font-family:'Newsreader',serif;font-weight:400;font-size:40px;line-height:1.1;letter-spacing:-.02em;text-wrap:balance">Email your sphere every month. Without lifting a finger.</h2>
+      <p style="color:#C8CCC4;font-size:17px;line-height:1.6">You tell us about your market. We write, design, and send on your behalf — from your name, to your list. You stay top of mind; we handle everything else.</p>
+      <ul style="display:grid;gap:0;border-top:1px solid rgba(246,244,238,.18)">
+        <sc-for list="{{ agentPoints }}" as="p" hint-placeholder-count="3">
+          <li style="display:flex;gap:14px;padding:16px 0;border-bottom:1px solid rgba(246,244,238,.18);font-size:17px;color:#F6F4EE"><span style="color:#70F28B">—</span>{{ p }}</li>
+        </sc-for>
+      </ul>
+      <a href="{{ bookingUrl }}" style="font-weight:700;display:inline-flex;align-items:center;gap:8px;color:#70F28B;margin-top:auto" style-hover="color:#F6F4EE">Start sending next month <span>→</span></a>
+    </div>
+  </section>
+
+  <!-- Not a platform -->
+  <section style="border-top:1px solid #E2DED3;border-bottom:1px solid #E2DED3;background:#F0EDE4">
+    <div style="max-width:1200px;margin:0 auto;padding:88px 32px;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:48px;align-items:start">
+      <h2 style="font-family:'Newsreader',serif;font-weight:400;font-size:clamp(34px,4vw,52px);line-height:1.05;letter-spacing:-.02em;text-wrap:balance">No dashboards. No logins. No “set it up yourself.”</h2>
+      <ol style="margin:0;padding:0;list-style:none;display:grid;gap:28px;counter-reset:x">
+        <sc-for list="{{ steps }}" as="st" hint-placeholder-count="3">
+          <li style="display:grid;grid-template-columns:48px minmax(0,1fr);gap:16px"><span style="font-family:'Newsreader',serif;font-size:30px;line-height:1;color:#1F7A3F">{{ st.n }}</span><div><div style="font-weight:700;font-size:19px">{{ st.title }}</div><p style="color:#5E645D;margin-top:4px">{{ st.desc }}</p></div></li>
+        </sc-for>
+      </ol>
+    </div>
+  </section>
+
+  <!-- Work -->
+  <sc-if value="{{ showWork }}" hint-placeholder-val="{{ true }}">
+  <section id="work" style="max-width:1200px;margin:0 auto;padding:96px 32px;scroll-margin-top:70px">
+    <div style="display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;margin-bottom:36px">
+      <h2 style="font-family:'Newsreader',serif;font-weight:400;font-size:clamp(34px,4vw,52px);line-height:1.05;letter-spacing:-.02em">Recent work</h2>
+      <p style="color:#5E645D;max-width:40ch">Emails, social posts, printables, and title websites we've shipped for clients.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:20px">
+
+      <!-- 1. Title company monthly email -->
+      <figure style="margin:0;display:flex;flex-direction:column;gap:12px">
+        <div style="aspect-ratio:4/5;box-sizing:border-box;background:#E8E4D9;border-radius:16px;overflow:hidden;padding:28px 28px 0;display:flex;align-items:flex-start">
+          <div style="width:100%;background:#fff;border-radius:8px 8px 0 0;box-shadow:0 12px 30px rgba(21,32,26,.12);overflow:hidden;font-size:9px;line-height:1.45;color:#3E453F">
+            <div style="padding:14px 18px 8px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #EEE"><span style="font-family:'Newsreader',serif;font-size:14px;color:#15201A">Summit Title &amp; Escrow</span><span style="font-size:7px;letter-spacing:.1em;text-transform:uppercase;color:#8A8F88">October 2026</span></div>
+            <div style="height:88px;background:repeating-linear-gradient(135deg,#D9D5C9 0 6px,#E8E4D9 6px 12px)"></div>
+            <div style="padding:16px 18px 0"><div style="font-family:'Newsreader',serif;font-size:17px;line-height:1.15;color:#15201A;margin-bottom:8px">Rates dipped. Here's what it means for your fall closings.</div><p style="margin:0 0 10px">Three things every agent in the San Gabriel Valley should know before the end of Q4 — plus our updated closing cost sheet.</p><div style="display:flex;gap:6px;margin-bottom:14px"><span style="background:#15201A;color:#fff;padding:5px 10px;border-radius:999px;font-weight:700">Read the update</span><span style="border:1px solid #DDD;padding:5px 10px;border-radius:999px">Download sheet</span></div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;padding-bottom:16px"><div><div style="height:38px;background:#F0EDE4;border-radius:4px;margin-bottom:5px"></div><strong style="color:#15201A">Escrow timelines</strong><br>What's changed since July</div><div><div style="height:38px;background:#F0EDE4;border-radius:4px;margin-bottom:5px"></div><strong style="color:#15201A">Meet the team</strong><br>Your new closing officer</div></div></div>
+          </div>
+        </div>
+        <figcaption style="display:flex;justify-content:space-between;gap:12px;font-size:14px"><span style="font-weight:700">Monthly market email</span><span style="color:#8A8F88">Email · Title</span></figcaption>
+      </figure>
+
+      <!-- 2. Agent sphere newsletter (mobile) -->
+      <figure style="margin:0;display:flex;flex-direction:column;gap:12px">
+        <div style="aspect-ratio:4/5;box-sizing:border-box;background:#15201A;border-radius:16px;overflow:hidden;padding:28px 56px 0;display:flex;align-items:flex-start">
+          <div style="width:100%;background:#fff;border-radius:22px 22px 0 0;border:5px solid #2B3630;border-bottom:0;overflow:hidden;font-size:8.5px;line-height:1.45;color:#3E453F">
+            <div style="padding:10px 14px 6px;font-size:7px;color:#8A8F88;display:flex;justify-content:space-between"><span>From: Dana Reyes, Realtor®</span><span>9:41</span></div>
+            <div style="padding:0 14px 10px;border-bottom:1px solid #EEE"><div style="font-weight:700;font-size:10px;color:#15201A">Your October home-value check-in</div></div>
+            <div style="margin:12px 14px 0;height:70px;border-radius:8px;background:repeating-linear-gradient(135deg,#D9D5C9 0 6px,#E8E4D9 6px 12px)"></div>
+            <div style="padding:12px 14px 0"><div style="font-family:'Newsreader',serif;font-size:15px;line-height:1.15;color:#15201A;margin-bottom:6px">Hi Marcus — homes near you sold 4% higher this fall.</div><p style="margin:0 0 10px">I pulled the numbers for your street. If you've wondered what your place is worth, I'd love to walk you through it. No pressure, just data.</p><span style="display:inline-block;background:#1F7A3F;color:#fff;padding:6px 12px;border-radius:999px;font-weight:700">See your numbers</span>
+            <div style="display:flex;gap:8px;align-items:center;margin-top:14px;padding-top:10px;border-top:1px solid #EEE"><span style="width:22px;height:22px;border-radius:50%;background:#C9C5B9;display:inline-block"></span><div><strong style="color:#15201A">Dana Reyes</strong><br><span style="color:#8A8F88">Realtor® · DRE 01234567</span></div></div></div>
+          </div>
+        </div>
+        <figcaption style="display:flex;justify-content:space-between;gap:12px;font-size:14px"><span style="font-weight:700">Agent sphere newsletter</span><span style="color:#8A8F88">Email · Agent</span></figcaption>
+      </figure>
+
+      <!-- 3. Social post set -->
+      <figure style="margin:0;display:flex;flex-direction:column;gap:12px">
+        <div style="aspect-ratio:4/5;box-sizing:border-box;background:#F0EDE4;border-radius:16px;overflow:hidden;padding:28px;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:10px">
+          <div style="background:#15201A;color:#F6F4EE;border-radius:8px;padding:14px;display:flex;flex-direction:column;justify-content:space-between"><span style="font-size:7px;letter-spacing:.12em;text-transform:uppercase;color:#70F28B">Title tip #12</span><span style="font-family:'Newsreader',serif;font-size:14px;line-height:1.1">What a title search actually finds.</span></div>
+          <div style="background:#fff;border-radius:8px;padding:14px;display:flex;flex-direction:column;justify-content:space-between;color:#15201A"><span style="font-size:7px;letter-spacing:.12em;text-transform:uppercase;color:#8A8F88">Closed this week</span><div><span style="font-family:'Newsreader',serif;font-size:26px;line-height:1">14</span><br><span style="font-size:8px;color:#5E645D">families got their keys</span></div></div>
+          <div style="background:repeating-linear-gradient(135deg,#D9D5C9 0 6px,#E8E4D9 6px 12px);border-radius:8px;padding:14px;display:flex;align-items:flex-end"><span style="background:#fff;padding:4px 8px;border-radius:999px;font-size:7px;font-weight:700;color:#15201A">Meet Priya, Escrow Officer</span></div>
+          <div style="background:#1F7A3F;color:#F6F4EE;border-radius:8px;padding:14px;display:flex;flex-direction:column;justify-content:space-between"><span style="font-size:7px;letter-spacing:.12em;text-transform:uppercase;opacity:.8">Agent Q&amp;A</span><span style="font-family:'Newsreader',serif;font-size:13px;line-height:1.1">"Can my buyer close in 10 days?" Yes — here's how.</span></div>
+        </div>
+        <figcaption style="display:flex;justify-content:space-between;gap:12px;font-size:14px"><span style="font-weight:700">Social calendar</span><span style="color:#8A8F88">Social</span></figcaption>
+      </figure>
+
+      <!-- 4. Closing cost flyer -->
+      <figure style="margin:0;display:flex;flex-direction:column;gap:12px">
+        <div style="aspect-ratio:4/5;box-sizing:border-box;background:#E8E4D9;border-radius:16px;overflow:hidden;padding:28px 40px 0;display:flex;align-items:flex-end">
+          <div style="width:100%;background:#fff;box-shadow:0 12px 30px rgba(21,32,26,.12);padding:22px 20px 0;font-size:8px;line-height:1.45;color:#3E453F;height:calc(100% - 28px);box-sizing:border-box;overflow:hidden">
+            <div style="font-size:7px;letter-spacing:.12em;text-transform:uppercase;color:#1F7A3F;margin-bottom:6px">For buyers · California</div>
+            <div style="font-family:'Newsreader',serif;font-size:20px;line-height:1;color:#15201A;margin-bottom:12px">Who pays for what at closing?</div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px"><div><strong style="color:#15201A;display:block;border-bottom:1px solid #15201A;padding-bottom:3px;margin-bottom:5px">Buyer typically pays</strong>Lender's title policy<br>Escrow fee (½)<br>Recording fees<br>Prepaid interest</div><div><strong style="color:#15201A;display:block;border-bottom:1px solid #15201A;padding-bottom:3px;margin-bottom:5px">Seller typically pays</strong>Owner's title policy<br>Escrow fee (½)<br>Transfer tax<br>Commissions</div></div>
+            <div style="background:#F0EDE4;border-radius:6px;padding:10px"><strong style="color:#15201A">Example: $750,000 purchase</strong><br>Estimated buyer closing costs: <strong style="color:#15201A">$9,200 – $14,500</strong></div>
+          </div>
+        </div>
+        <figcaption style="display:flex;justify-content:space-between;gap:12px;font-size:14px"><span style="font-weight:700">Closing cost flyer</span><span style="color:#8A8F88">Print</span></figcaption>
+      </figure>
+
+      <!-- 5. Title company website -->
+      <figure style="margin:0;display:flex;flex-direction:column;gap:12px">
+        <div style="aspect-ratio:4/5;box-sizing:border-box;background:#15201A;border-radius:16px;overflow:hidden;padding:24px 0 0 28px;display:flex;align-items:flex-start">
+          <div style="width:100%;height:calc(100% - 24px);background:#F6F4EE;border-radius:8px 0 0 0;overflow:hidden;font-size:8px;color:#3E453F;box-shadow:0 12px 30px rgba(0,0,0,.3)">
+            <div style="padding:10px 14px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #E2DED3"><span style="font-family:'Newsreader',serif;font-size:11px;color:#15201A">Summit Title</span><span style="display:flex;gap:8px;font-size:6.5px;font-weight:600;color:#5E645D">Services · Agents · Rates · Contact</span><span style="background:#15201A;color:#fff;padding:3px 8px;border-radius:999px;font-size:6.5px;font-weight:700">Open escrow</span></div>
+            <div style="padding:22px 14px 16px"><div style="font-size:6.5px;letter-spacing:.12em;text-transform:uppercase;color:#1F7A3F;margin-bottom:6px">Serving the San Gabriel Valley since 1994</div><div style="font-family:'Newsreader',serif;font-size:21px;line-height:1;color:#15201A;max-width:14ch;margin-bottom:8px">Closings that stay on schedule.</div><p style="margin:0;max-width:30ch;font-size:7.5px;line-height:1.5">Independent title and escrow with a real person on every file. Agents, lenders, and buyers all get one point of contact.</p></div>
+            <div style="margin:0 14px;height:60px;border-radius:6px;background:repeating-linear-gradient(135deg,#D9D5C9 0 6px,#E8E4D9 6px 12px)"></div>
+            <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;padding:14px"><div style="background:#fff;border:1px solid #E2DED3;border-radius:6px;padding:8px;font-size:6.5px"><strong style="color:#15201A;display:block;font-size:7.5px">Rate calculator</strong>Instant quotes</div><div style="background:#fff;border:1px solid #E2DED3;border-radius:6px;padding:8px;font-size:6.5px"><strong style="color:#15201A;display:block;font-size:7.5px">Order title</strong>Upload a contract</div><div style="background:#fff;border:1px solid #E2DED3;border-radius:6px;padding:8px;font-size:6.5px"><strong style="color:#15201A;display:block;font-size:7.5px">Track escrow</strong>Live status</div></div>
+          </div>
+        </div>
+        <figcaption style="display:flex;justify-content:space-between;gap:12px;font-size:14px"><span style="font-weight:700">Title company site</span><span style="color:#8A8F88">Website</span></figcaption>
+      </figure>
+
+      <!-- 6. Rate sheet -->
+      <figure style="margin:0;display:flex;flex-direction:column;gap:12px">
+        <div style="aspect-ratio:4/5;box-sizing:border-box;background:#F0EDE4;border-radius:16px;overflow:hidden;padding:28px 40px 0;display:flex;align-items:flex-end">
+          <div style="width:100%;height:calc(100% - 28px);background:#fff;box-shadow:0 12px 30px rgba(21,32,26,.12);padding:20px;font-size:8px;line-height:1.45;color:#3E453F;box-sizing:border-box;overflow:hidden">
+            <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:12px"><span style="font-family:'Newsreader',serif;font-size:15px;color:#15201A">Owner's Policy Rates</span><span style="font-size:7px;color:#8A8F88">Effective Oct 2026</span></div>
+            <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr;font-size:7.5px;border-top:1.5px solid #15201A">
+              <div style="padding:5px 0;font-weight:700;color:#15201A;border-bottom:1px solid #E2DED3">Sale price</div><div style="padding:5px 0;font-weight:700;color:#15201A;border-bottom:1px solid #E2DED3;text-align:right">Owner's</div><div style="padding:5px 0;font-weight:700;color:#15201A;border-bottom:1px solid #E2DED3;text-align:right">Lender's</div>
+              <div style="padding:5px 0;border-bottom:1px solid #EEE">$400,000</div><div style="padding:5px 0;border-bottom:1px solid #EEE;text-align:right">$1,310</div><div style="padding:5px 0;border-bottom:1px solid #EEE;text-align:right">$620</div>
+              <div style="padding:5px 0;border-bottom:1px solid #EEE">$600,000</div><div style="padding:5px 0;border-bottom:1px solid #EEE;text-align:right">$1,690</div><div style="padding:5px 0;border-bottom:1px solid #EEE;text-align:right">$780</div>
+              <div style="padding:5px 0;border-bottom:1px solid #EEE;background:#F6F4EE">$750,000</div><div style="padding:5px 0;border-bottom:1px solid #EEE;text-align:right;background:#F6F4EE">$1,945</div><div style="padding:5px 0;border-bottom:1px solid #EEE;text-align:right;background:#F6F4EE">$880</div>
+              <div style="padding:5px 0;border-bottom:1px solid #EEE">$1,000,000</div><div style="padding:5px 0;border-bottom:1px solid #EEE;text-align:right">$2,380</div><div style="padding:5px 0;border-bottom:1px solid #EEE;text-align:right">$1,040</div>
+              <div style="padding:5px 0;border-bottom:1px solid #EEE">$1,500,000</div><div style="padding:5px 0;border-bottom:1px solid #EEE;text-align:right">$3,140</div><div style="padding:5px 0;border-bottom:1px solid #EEE;text-align:right">$1,360</div>
+            </div>
+            <p style="margin:10px 0 0;font-size:6.5px;color:#8A8F88">Sample rates for illustration. Escrow fees quoted separately. Ask about our concurrent-issue discount.</p>
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-top:12px;padding-top:8px;border-top:1px solid #EEE"><span style="font-family:'Newsreader',serif;font-size:10px;color:#15201A">Summit Title &amp; Escrow</span><span style="width:6px;height:6px;border-radius:50%;background:#70F28B;display:inline-block"></span></div>
+          </div>
+        </div>
+        <figcaption style="display:flex;justify-content:space-between;gap:12px;font-size:14px"><span style="font-weight:700">Rate sheet</span><span style="color:#8A8F88">Print</span></figcaption>
+      </figure>
+    </div>
+  </section>
+  </sc-if>
+
+  <!-- CTA + contact -->
+  <section id="contact" style="max-width:1200px;margin:0 auto;padding:0 32px 96px;scroll-margin-top:70px">
+    <div style="background:#15201A;color:#F6F4EE;border-radius:24px;padding:72px 56px;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:40px;align-items:center">
+      <div style="display:grid;gap:20px">
+        <h2 style="font-family:'Newsreader',serif;font-weight:400;font-size:clamp(36px,4.5vw,60px);line-height:1;letter-spacing:-.02em;text-wrap:balance">Let's talk about your market.</h2>
+        <p style="color:#C8CCC4;font-size:18px;max-width:40ch">A 20-minute call. We'll tell you exactly what we'd do and what it costs.</p>
+      </div>
+      <div style="display:grid;gap:18px;justify-items:start">
+        <a href="{{ bookingUrl }}" style="background:#70F28B;color:#15201A;padding:18px 32px;border-radius:999px;font-weight:700;font-size:17px" style-hover="background:#F6F4EE;color:#15201A">Book a call</a>
+        <div style="display:flex;flex-direction:column;gap:4px;font-size:16px;color:#C8CCC4"><a href="tel:6263334567" style="color:#F6F4EE">(626) 333-4567</a><a href="mailto:info@flaremedia.io" style="color:#F6F4EE">info@flaremedia.io</a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer style="border-top:1px solid #E2DED3">
+    <div style="max-width:1200px;margin:0 auto;padding:40px 32px;display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;font-size:14px;color:#5E645D">
+      <div style="display:flex;align-items:center;gap:10px"><span style="display:block;width:16px;height:26px;overflow:hidden"><img src="assets/logo.png" alt="" style="height:26px;display:block"></span><span style="font-family:'Newsreader',serif;font-size:20px;color:#15201A">FlareMedia</span></div>
+      <div>440 Rte. 66, Glendora, CA 91740</div>
+      <div style="display:flex;gap:20px"><a href="tel:6263334567">(626) 333-4567</a><a href="mailto:info@flaremedia.io">info@flaremedia.io</a></div>
+      <div>© 2026 FlareMedia</div>
+    </div>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;bookingUrl&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;#contact&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Links&quot;},&quot;showPhone&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Header&quot;},&quot;showWork&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Sections&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      bookingUrl: this.props.bookingUrl ?? '#contact',
+      showPhone: this.props.showPhone ?? true,
+      showWork: this.props.showWork ?? true,
+      titleServices: [
+        { n: '01', name: 'Email marketing', desc: 'Monthly campaigns to your agents, lenders, and past clients — written, designed, sent.' },
+        { n: '02', name: 'Social media content', desc: 'A steady calendar of posts your team can approve in minutes.' },
+        { n: '03', name: 'Printable materials', desc: 'Rate sheets, flyers, and leave-behinds your reps actually use.' },
+        { n: '04', name: 'Title websites', desc: 'We build it, host it, and keep it current.' },
+      ],
+      agentPoints: ['One monthly email, written and designed for your market', 'Sent from your name to your list', 'Nothing to learn, nothing to log into'],
+      steps: [
+        { n: '1', title: 'A short call', desc: 'We learn your market, your brand, and who you need to stay in front of.' },
+        { n: '2', title: 'We build it', desc: 'Emails, posts, print, or site — you approve, we handle every detail.' },
+        { n: '3', title: 'We keep it running', desc: 'Month after month. You get a note when it goes out, not a to-do list.' },
+      ],
+      work: [
+        { id: 'w1', title: 'Monthly market email', kind: 'Email · Title', placeholder: 'Email sample — title company' },
+        { id: 'w2', title: 'Agent sphere newsletter', kind: 'Email · Agent', placeholder: 'Email sample — real estate agent' },
+        { id: 'w3', title: 'Social calendar', kind: 'Social', placeholder: 'Social post set' },
+        { id: 'w4', title: 'Closing cost flyer', kind: 'Print', placeholder: 'Printable flyer' },
+        { id: 'w5', title: 'Title company site', kind: 'Website', placeholder: 'Website screenshot' },
+        { id: 'w6', title: 'Rate sheet', kind: 'Print', placeholder: 'Printable rate sheet' },
+      ],
+    };
+  }
+}
+</script>
+</body>
+</html>
