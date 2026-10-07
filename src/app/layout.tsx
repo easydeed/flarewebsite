@@ -26,7 +26,6 @@ const manrope = localFont({
 export const metadata: Metadata = {
   title: 'FlareMedia — Marketing for title companies and real estate agents',
   description: 'Boutique agency in Glendora, CA. Email, social, print, and websites for title companies; done-for-you email for real estate agents.',
-  icons: { icon: '/logo-mark.png' },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
