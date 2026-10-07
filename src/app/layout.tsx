@@ -1,9 +1,27 @@
 import type { Metadata } from 'next';
-import { Newsreader, Manrope } from 'next/font/google';
+import localFont from 'next/font/local';
 import './globals.css';
 
-const newsreader = Newsreader({ subsets: ['latin'], style: ['normal', 'italic'], weight: ['400', '500'], variable: '--font-newsreader', display: 'swap', adjustFontFallback: false });
-const manrope = Manrope({ subsets: ['latin'], weight: ['400', '600', '700'], variable: '--font-manrope', display: 'swap' });
+const newsreader = localFont({
+  src: [
+    { path: '../../node_modules/@fontsource/newsreader/files/newsreader-latin-400-normal.woff2', weight: '400', style: 'normal' },
+    { path: '../../node_modules/@fontsource/newsreader/files/newsreader-latin-400-italic.woff2', weight: '400', style: 'italic' },
+    { path: '../../node_modules/@fontsource/newsreader/files/newsreader-latin-500-normal.woff2', weight: '500', style: 'normal' },
+    { path: '../../node_modules/@fontsource/newsreader/files/newsreader-latin-500-italic.woff2', weight: '500', style: 'italic' },
+  ],
+  variable: '--font-newsreader',
+  display: 'swap',
+});
+
+const manrope = localFont({
+  src: [
+    { path: '../../node_modules/@fontsource/manrope/files/manrope-latin-400-normal.woff2', weight: '400', style: 'normal' },
+    { path: '../../node_modules/@fontsource/manrope/files/manrope-latin-600-normal.woff2', weight: '600', style: 'normal' },
+    { path: '../../node_modules/@fontsource/manrope/files/manrope-latin-700-normal.woff2', weight: '700', style: 'normal' },
+  ],
+  variable: '--font-manrope',
+  display: 'swap',
+});
 
 export const metadata: Metadata = {
   title: 'FlareMedia — Marketing for title companies and real estate agents',
